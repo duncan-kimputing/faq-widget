@@ -17,78 +17,115 @@
 
 const FAQ_DATA = [
   {
-    category: "Getting Started",
+    category: "Product & Capabilities",
     questions: [
-      { q: "How do I create an account?", a: "To create an account, click the Sign Up button in the top right corner of our homepage. You'll need to provide your email address, create a password, and verify your email. The whole process takes less than 2 minutes." },
-      { q: "What are the system requirements?", a: "Our platform works on all modern web browsers including Chrome, Firefox, Safari, and Edge. We recommend using the latest version of your preferred browser for the best experience. Mobile apps are available for iOS 14+ and Android 10+." },
-      { q: "Is there a free trial available?", a: "Yes! We offer a 14-day free trial with full access to all features. No credit card required to start. You can upgrade to a paid plan at any time during or after your trial." },
-      { q: "How do I reset my password?", a: "Click on 'Forgot Password' on the login page, enter your email address, and we'll send you a reset link. The link expires after 24 hours for security reasons. If you don't see the email, check your spam folder." },
-      { q: "Can I change my username?", a: "Yes, you can change your username from your account settings. Go to Settings > Profile > Edit Username. Note that you can only change your username once every 30 days." },
-      { q: "How do I enable two-factor authentication?", a: "Navigate to Settings > Security > Two-Factor Authentication. You can choose between SMS verification or an authenticator app. We recommend using an authenticator app for enhanced security." },
-      { q: "What browsers are supported?", a: "We support all major modern browsers: Google Chrome (version 90+), Mozilla Firefox (version 88+), Safari (version 14+), and Microsoft Edge (version 90+). Internet Explorer is not supported." },
-      { q: "How do I contact customer support?", a: "You can reach our support team via email at support@example.com, through our live chat feature available on the bottom right of every page, or by calling 1-800-EXAMPLE during business hours (9 AM - 6 PM EST, Monday through Friday)." },
-      { q: "Is my data secure?", a: "Absolutely. We use industry-standard AES-256 encryption for all data at rest and TLS 1.3 for data in transit. Our infrastructure is hosted on SOC 2 Type II certified data centers, and we undergo regular third-party security audits." },
-      { q: "Can I use the service on multiple devices?", a: "Yes, you can access your account from unlimited devices. Your data syncs automatically across all devices in real-time. You can manage your active sessions from Settings > Security > Active Sessions." }
+      // 1.1 Overview (Q1-Q6)
+      { q: "What is CenterTest?", a: "CenterTest is an enterprise-grade, Java-based test automation framework developed by Kimputing. While purpose-built with deep native understanding of Guidewire InsuranceSuite (including PolicyCenter, BillingCenter, ClaimCenter, ContactManager, and digital portals), CenterTest is a sophisticated automation platform capable of testing across your entire IT ecosystem. The framework can automate any system accessible through Java: third-party applications, APIs, legacy systems, custom portals, and external integrations. If you can touch it with Java, you can test it with CenterTest." },
+      { q: "Which Guidewire versions does CenterTest support?", a: "CenterTest supports all Guidewire versions from v7 through the latest Cloud release, including the complete alphabet of ski resort updates. A single CenterTest implementation can test multiple Guidewire versions simultaneously, enabling organizations to validate upgrades, run parallel environments, or support post-acquisition platform consolidation." },
+      { q: "What Guidewire Centers does CenterTest support?", a: "CenterTest supports the complete Guidewire InsuranceSuite: PolicyCenter, BillingCenter, ClaimCenter, and ContactManager. The framework also supports digital portals including Producer Engage and Customer Engage. Beyond Guidewire, CenterTest can integrate with any external system in your testing workflows, including rating engines, document management systems, payment processors, or legacy policy administration systems." },
+      { q: "How many pre-built components does CenterTest include?", a: "CenterTest includes 103 out-of-the-box reusables, which are high-level workflow components built on layers of abstract base classes, helper utilities, and widget interactions. These reusables serve as building blocks for rapid scenario creation. The framework also includes 202 end-to-end test scenarios covering common and designated function workflows, plus 306 pre-configured flows spanning all Guidewire InsuranceSuite out-of-the-box lines of business. Each reusable encapsulates dozens of underlying operations, so a single call like PC.createPersonalAutoSubmission() orchestrates page navigation, field population, validation handling, and wizard progression automatically." },
+      { q: "Is CenterTest a SaaS product?", a: "No. CenterTest is deployed locally within customer environments. There is no cloud dependency, subscription service, or external data transmission. The core framework does not use AI, machine learning, or agentic processes. This architecture enables rapid deployment in secure, air-gapped, or highly regulated enterprise environments without external dependencies." },
+      { q: "What programming language does CenterTest use?", a: "CenterTest is built on Java, but you don't need to be a Java developer to use it effectively. Test scenarios read like plain English. All scenarios are data-driven, so Java skills are only needed when extending the framework or creating new scenarios or reusables. No programming expertise is required for day-to-day test data management, test execution, or reviewing results. Test data is managed in common-language, object-oriented data structures, allowing business teams to easily define and expand test coverage. Tests can be kicked off via pipeline (Jenkins, Azure DevOps, GitHub Actions, etc.), allowing anyone to trigger test suites without touching code. CenterTest integrates with all major test management platforms (TestRail, SpiraTest, ReportPortal), giving all stakeholders access to test results and CenterTest Output." },
+      // 1.2 Testing Types (Q7-Q16)
+      { q: "Does CenterTest support UI testing?", a: "Yes. CenterTest provides sophisticated end-to-end UI testing with native understanding of Guidewire widgets, PCF page structures, and asynchronous rendering patterns. Unlike generic Selenium wrappers that interact with raw HTML elements, CenterTest understands Guidewire's widget type system: dropdown searches, shuttle lists, date pickers, modal dialogs, wizard navigation, LVs (list views), DVs (detail views), and dynamic content loading all work out of the box without custom wait logic or brittle XPath expressions." },
+      { q: "Does CenterTest support API testing?", a: "Yes. CenterTest supports API testing for custom integrations, Guidewire Cloud APIs (including Edge APIs), and third-party services. API tests can execute as standalone scenarios or integrate within end-to-end UI workflows for comprehensive validation. This enables hybrid testing patterns where a scenario might seed data via API, validate UI behavior, then verify downstream system updates through additional API calls." },
+      { q: "Does CenterTest support performance testing?", a: "Yes. Any functional end-to-end scenario, including UI and API tests, can be repurposed for performance, load, and stress testing by configuring parameters such as ramp-up time, thread count, and iteration limits. This eliminates the need for separate performance testing software, specialized scripts, or duplicate test maintenance. Your functional regression suite becomes your performance baseline." },
+      { q: "Does CenterTest support document testing?", a: "Yes. CenterTest supports direct opening and parsing of PDF documents for verification, including analysis by line, by section, or by pattern matching. The framework tracks document generation timing and enables validation of data both passed in through DDT (such as insured names and addresses) and generated during test execution (such as policy numbers and effective dates). This is critical for validating dec pages, policy documents, billing statements, and claims correspondence." },
+      { q: "Does CenterTest support accessibility testing?", a: "Yes. Starting from version 5.5, CenterTest provides built-in accessibility testing using the Axe core engine. The framework can analyze any page during test execution and generates detailed Excel reports covering violations, passed rules, and impact-level statistics (Critical, Serious, Moderate, Minor). This capability supports portal testing against WCAG standards and helps organizations identify accessibility issues before they reach production." },
+      { q: "Does CenterTest support multi-user testing?", a: "Yes. CenterTest enables sophisticated, realistic end-to-end testing by supporting multiple concurrent user connections within a single scenario. Each user (defined by role and permissions) operates in their own browser session while sharing data between sessions. For example, a scenario might have a producer create a submission, then an underwriter review and approve it, then a billing clerk verify the invoice, all within one coordinated test execution. This mirrors real-world workflows where multiple personas interact with the same business transaction." },
+      { q: "Does CenterTest support multi-Center testing?", a: "Yes. CenterTest scenarios can span PolicyCenter, BillingCenter, ClaimCenter, and portals within a single test execution. Each application operates as an independent session, and sessions share data to enable true end-to-end workflow validation across the entire InsuranceSuite. A single scenario can create a policy in PC, verify the account in BC, file a claim in CC, and validate billing adjustments, all while tracking the policy number, claim number, and other generated data across systems." },
+      { q: "Can CenterTest test non-Guidewire systems?", a: "Yes. While optimized for Guidewire, CenterTest is a sophisticated automation platform capable of testing across entire IT ecosystems. The framework can test third-party applications, external APIs, legacy systems, custom portals, rating engines, document repositories, and any system accessible through Java. If you can touch it with Java, you can test it with CenterTest." },
+      { q: "Does CenterTest support role-based access and permissions testing?", a: "Yes. CenterTest separates role definitions from credential management to enable flexible permissions testing. Test scenarios define users by logical role names, and actual credentials are managed in backend property files, completely separate from test code. This architecture enables two powerful testing patterns: first, you can validate end-to-end workflows using users with global permissions, then swap credentials in the property files to test with restricted roles, all without modifying a single line of test code. This makes it easy to verify that producers cannot access underwriter-only functions, confirm that read-only users cannot modify records, or validate that sensitive fields are hidden from unauthorized roles." },
+      { q: "Does CenterTest support SSO and MFA authentication?", a: "Yes. CenterTest handles Single Sign-On (SSO) and Multi-Factor Authentication (MFA) workflows that are common in enterprise Guidewire deployments. The framework can navigate SSO redirects, handle authentication prompts, and manage session tokens across test execution. For MFA scenarios, CenterTest supports integration with authentication providers and can work with TOTP (time-based one-time passwords) or other verification methods depending on your security configuration." },
+      // 1.3 Source-Code Generators (Q17-Q22)
+      { q: "What are CenterTest source-code generators?", a: "CenterTest source-code generators read the entire structure of your Guidewire Centers and automatically create test framework assets directly from Guidewire source code. The generators produce page object models (POMs), type list enums, product model helpers, and utility classes. This eliminates weeks of manual development work while ensuring test assets remain perfectly synchronized with your specific Guidewire implementation, including all customizations." },
+      { q: "What specific assets do the generators create?", a: "CenterTest generators create four categories of test assets: Page Object Models (POMs) with strongly-typed widget references for all PCF pages across PolicyCenter, BillingCenter, ClaimCenter, ContactManager, and portals, enabling IDE autocomplete and compile-time validation; Type List Enums replacing hardcoded strings with compile-time validated type list values; Product Model Objects with typed accessor methods for coverages, conditions, exclusions, and modifiers; and Helper Utilities that facilitate communication across test execution contexts, enabling scenarios to pass policy numbers, account names, and other generated data between reusables and across Centers." },
+      { q: "How do CenterTest generators differ from standard page object generators?", a: "Standard generators scrape rendered HTML and create generic element references based on IDs, CSS classes, or XPath expressions. When Guidewire changes its HTML output (which happens frequently between versions), those locators break. CenterTest generators read PCF files directly from Guidewire source code, understanding the widget type system rather than HTML output. Generated POMs use widget classes that understand Guidewire-specific behaviors: asynchronous loading, wizard step validation, shuttle list interactions, and modal dialog handling all work automatically." },
+      { q: "How long does initial generation take?", a: "Initial generation completes in minutes. The generator reads your Guidewire source directory and outputs all page objects, type lists, and product models in a single coordinated process. After generation, teams can begin scenario development immediately. Regeneration after Guidewire upgrades or configuration changes is equally fast, keeping your test assets synchronized with minimal effort." },
+      { q: "Can generators be run independently for specific artifact types?", a: "Yes. CenterTest provides separate generation modes: GENERATEPAGES, GENERATETYPELISTS, GENERATEPRODUCTMODEL, and GENERATEALL. While running GENERATEALL is most common, individual artifact types can be regenerated independently when needed. There is no required sequence for generation." },
+      { q: "How do generators handle unknown widget types?", a: "When the generator encounters an unknown widget type, it falls back to a generic input widget to ensure scenarios can still execute. Kimputing then implements the specific widget type in the core framework, so future generations handle that widget correctly. This means custom Guidewire widgets or new widget types introduced in ski resort releases are addressed through framework updates rather than requiring workarounds in your test code." },
+      // 1.4 CenterTest Version Compatibility (Q23-Q24)
+      { q: "What is CenterTest Version Compatibility?", a: "CenterTest Version Compatibility enables test scenarios created for any Guidewire version to execute against any other supported version. Scenarios written for v7, v8, or v9 can run unchanged against v10 and Cloud releases without modification. The framework identifies the target Guidewire version at runtime and applies appropriate widget handling automatically, abstracting away the differences between versions so your test code remains stable." },
+      { q: "How does CenterTest Version Compatibility protect automation investments?", a: "Every scenario written today will run on future Guidewire versions without requiring specialized programming knowledge or framework modifications. When carriers migrate to Guidewire Cloud, adopt new versions, or consolidate platforms after acquisitions, existing scenarios continue executing without modification. This converts test automation from a depreciating asset into a durable, long-term strategic investment." },
+      // 1.5 CenterTest Time Travel (Q25-Q28)
+      { q: "What is CenterTest Time Travel?", a: "CenterTest Time Travel enables automated testing of date-sensitive workflows by managing system clock changes across the entire InsuranceSuite. Scenarios execute to specific points, pause for clock changes, then resume testing through policy renewals, billing cycles, delinquency processing, claims aging, and other date-dependent business processes. This allows you to test a full policy lifecycle (from submission through renewal or cancellation) in a single coordinated scenario." },
+      { q: "Can CenterTest automatically change system clocks?", a: "Yes. CenterTest can automatically change and synchronize clocks across all Guidewire Centers to ensure proper environmental coordination and enable expansive automation. Alternatively, CenterTest can suspend scenarios with time travel requirements in restart mode and recommend the optimal date for manual clock changes." },
+      { q: "What is the CenterTest Time Travel Best Day calculation?", a: "When multiple scenarios execute with different date requirements, CenterTest identifies the fewest clock changes necessary for maximum test coverage. This Best Day calculation minimizes date changes required, dramatically reducing overall execution time while expanding the number of time travel scenarios that can execute simultaneously." },
+      { q: "How flexible is time travel date specification?", a: "For each time travel restart point, scenarios can specify a specific date, a date range, before/after conditions, or a number of days relative to an event like renewal or claims filing. Positive calculations move forward from policy effective date while negative calculations move backward from expiration date. This flexibility enables comprehensive lifecycle testing." },
+      // 1.6 CenterTest Narratives (Q29-Q31)
+      { q: "What are CenterTest Narratives?", a: "CenterTest Narratives transform technical test executions into business-readable documentation. Originally developed as Reverse-BDD, CenterTest Narratives produce human-readable output directly from test execution, providing business stakeholders with clear understanding of test coverage without implementing complex Cucumber or Gherkin frameworks." },
+      { q: "What output formats do CenterTest Narratives support?", a: "CenterTest Narratives can generate output in natural language format or Given/When/Then Gherkin style based on organizational preference. The default is natural language showing the flow, with Gherkin available as an additional format. Language configuration files support localization for international teams." },
+      { q: "How do CenterTest Narratives differ from traditional BDD?", a: "Traditional BDD requires complex, time-consuming Cucumber scenario creation that is only feasible after Guidewire development completes. This process is brittle, difficult to scale, and requires specialized support. CenterTest Narratives reverse this approach, generating human-readable output from executed scenarios. Business teams provide requirements through DDT spreadsheets and receive narrative output for easy consumption, without the Cucumber complexity." },
+      // 1.7 CenterTest Analytics (Q32-Q35)
+      { q: "What analytics capabilities does CenterTest provide?", a: "CenterTest Analytics includes three primary categories: Runtime Analytics with automatic capture of every click, field setting, and timing for each action, assertion, and process; Coverage Analytics for identification of PCF changes between Guidewire versions to ensure customizations receive test coverage; and Trend Analytics for monitoring execution patterns over time to identify slowdowns, environmental issues, and stability patterns." },
+      { q: "Does CenterTest include pre-built dashboards?", a: "CenterTest does not include pre-built executive dashboards because every organization has different reporting needs and stakeholder requirements. Instead, CenterTest integrates with all major test management and reporting platforms (TestRail, ReportPortal, SpiraTest), allowing you to build custom dashboards tailored to your specific needs. The CenterTest Analytics database is directly accessible with a documented schema, and AI-assisted tools make sophisticated custom analyses straightforward. Organizations can query execution trends, identify flaky tests, track performance over time, and surface patterns that would be invisible in standard pass/fail reporting." },
+      { q: "What is PCF Coverage Analytics?", a: "PCF Coverage Analytics identifies every change between PCF fields and properties across two Guidewire versions, tracking added, modified, and deleted elements. During test execution, CenterTest monitors widget interactions and maps them to known PCF modifications. Reports show exactly which customized elements have been tested versus which remain uncovered. This matters because CenterTest knows what you changed during development and knows whether or not you have tested it, giving you confidence that your customizations are validated before release." },
+      { q: "What is CenterTest Output?", a: "CenterTest Output refers to the comprehensive set of artifacts and data produced during test execution. CenterTest provides test execution results via your test manager of choice, allowing you to customize reports and stakeholder dashboards. CenterTest Analytics records comprehensive test execution data for every click, every set, every assert, and much more. This enables your teams to perform custom analytics to uncover meaningful trends in failures and performance. CenterTest also provides a tremendous amount of optional test output based on the type and purpose of your test: video recordings, assertion logs, scheduled or failure-triggered screenshots, Playwright trace files, plain-English narrative reports, execution analytics, and test-generated data like policy and account numbers." },
+      // 1.8 Video Recording (Q36-Q38)
+      { q: "What video recording capabilities does CenterTest provide?", a: "CenterTest provides full single-stream recording of test execution from start to finish across all browser interactions. Recordings include overlays identifying actions at the test level, such as field settings with the interacted field highlighted. This creates visual documentation that non-technical stakeholders can review to validate test coverage." },
+      { q: "How does CenterTest Output support business communication?", a: "CenterTest Output bridges the gap between technical execution and business understanding. Video recordings allow stakeholders to watch test execution and validate that scenarios match expected workflows. Narrative reports translate technical steps into plain-English documentation that business analysts can review without reading code. Assertion logs provide detailed evidence of what was verified and when. Screenshots capture the application state at critical moments or upon failure. Playwright trace files enable developers to step through execution for debugging. Combined, these artifacts provide comprehensive documentation for compliance, audit requirements, and stakeholder sign-off, all without requiring technical expertise to interpret." },
+      { q: "Are screenshots captured automatically?", a: "Yes. Screenshots can be automatically captured when a test fails, or when scenarios throw assertion exceptions. Additionally, the takeScreenshot capability allows explicit screenshot capture at any point during execution, regardless of pass/fail status. Screenshots upload automatically to connected test managers and are stored with the test execution results." },
+      // 1.9 Data-Driven Testing (Q39-Q41)
+      { q: "What is CenterTest's data-driven testing architecture?", a: "CenterTest implements an Object-Oriented Data-Driven Testing (OODDT) architecture that minimizes data bloat while maximizing coverage scalability. Test data references logical entity names rather than raw values, with shared data sheets enabling single definitions that propagate across multiple scenarios. This means you define a \"StandardDriver\" or \"CaliforniaAddress\" once and reference it everywhere, rather than duplicating data across hundreds of test rows." },
+      { q: "How does OODDT reduce maintenance burden?", a: "Traditional approaches require each test row to contain all data values. CenterTest defines entities once and references them by name. Changing a standard address updates one entity rather than hundreds of cells. Override columns allow scenario-specific variations while inheriting defaults, making intent clear while minimizing data surface area. Additionally, test data does not need to change during Guidewire migrations and upgrades. Tests are smart enough to ignore blank values for non-required fields, enabling a single scenario to drive hundreds of test variations through DDT without updating test code. When combined with the shared OODDT approach, this maximizes testing and test coverage while limiting the amount of test code and data you have to maintain." },
+      { q: "Can business teams manage test data?", a: "Yes. Business teams provide test requirements through familiar Excel spreadsheet formats. Object references use logical names that business users understand, and override columns clearly show which values differ from defaults. No programming expertise is required to define test data." }
     ]
   },
   {
-    category: "Billing & Pricing",
+    category: "Architecture & Maintenance",
     questions: [
-      { q: "What payment methods do you accept?", a: "We accept all major credit cards (Visa, MasterCard, American Express, Discover), PayPal, and bank transfers for annual plans. For enterprise customers, we also offer invoicing with NET 30 terms." },
-      { q: "Can I cancel my subscription anytime?", a: "Yes, you can cancel your subscription at any time from your account settings. You'll continue to have access until the end of your current billing period. We don't offer prorated refunds for partial months." },
-      { q: "Do you offer refunds?", a: "We offer a 30-day money-back guarantee for first-time subscribers. If you're not satisfied within the first 30 days, contact support for a full refund. After 30 days, we don't offer refunds but you can cancel to prevent future charges." },
-      { q: "How do I update my payment method?", a: "Go to Settings > Billing > Payment Methods. You can add a new card, remove old ones, or set a different default payment method. Changes take effect on your next billing cycle." },
-      { q: "Is there a discount for annual billing?", a: "Yes! When you choose annual billing, you save 20% compared to monthly billing. That's like getting over 2 months free. You can switch to annual billing at any time from your subscription settings." },
-      { q: "How do I download my invoices?", a: "All invoices are available in Settings > Billing > Invoice History. You can download individual invoices as PDFs or export your complete billing history as a CSV file for your records." },
-      { q: "What happens if my payment fails?", a: "If a payment fails, we'll notify you by email and retry the charge after 3 days. You have a 14-day grace period to update your payment information before your account is downgraded to the free tier." },
-      { q: "Do you offer non-profit discounts?", a: "Yes, we offer a 50% discount for registered non-profit organizations. Contact our sales team with proof of non-profit status (such as a 501(c)(3) letter) to apply for the discount." },
-      { q: "Can I pause my subscription?", a: "Yes, you can pause your subscription for up to 3 months. During the pause, you won't be billed and will retain read-only access to your data. Go to Settings > Subscription > Pause Subscription to use this feature." },
-      { q: "How do I upgrade or downgrade my plan?", a: "You can change your plan anytime from Settings > Subscription > Change Plan. Upgrades take effect immediately with prorated billing. Downgrades take effect at the start of your next billing cycle." }
+      { q: "What are CenterTest reusables?", a: "Reusables are modular, self-contained components that encapsulate common workflow steps. Each reusable can execute independently or chain with other reusables to form complete scenarios. CenterTest includes 103 out-of-the-box reusables covering common Guidewire operations. These are not simple functions; each reusable is built on layers of abstract base classes, helper utilities, and widget interactions." },
+      { q: "How do reusables simplify maintenance?", a: "When Guidewire changes affect a workflow, fixing the impacted reusable automatically updates all scenarios using that component. A single update propagates across the entire test suite without modifying individual scenarios. If you have 500 scenarios that use CreatePersonAccount, and Guidewire changes the account creation wizard, you fix it once in the reusable and all 500 scenarios work again." },
+      { q: "How do reusables differ from traditional shared functions?", a: "Traditional shared functions are static utilities without context. CenterTest reusables provide strong typing where each reusable is a distinct class with IDE-tracked usage, context injection providing browser, assertions, and data without global variables, composability allowing reusables to chain operations fluently, and impact analysis through IDE Find Usages showing all affected scenarios." },
+      { q: "Can teams create custom reusables?", a: "Yes. Teams can extend existing reusables or create new ones to match unique Guidewire implementations. Custom reusables follow the same patterns as built-in components, ensuring consistency and enabling the same maintenance benefits." },
+      { q: "What is compile-time detection?", a: "CenterTest uses strongly-typed Java classes for all Guidewire artifacts. When Guidewire changes break these references, Java compilation fails immediately with clear error messages identifying the exact location. This converts runtime failures into compile-time errors that can be addressed systematically before any test execution." },
+      { q: "How quickly can teams identify all affected scenarios after a Guidewire update?", a: "After regeneration against an updated Guidewire environment, the IDE immediately shows all compile errors across the test project. Find Usages on any changed element shows every affected scenario. The time to identify all affected scenarios equals the time to compile, typically seconds to minutes depending on project size." },
+      { q: "How does CenterTest Self-Healing work?", a: "CenterTest Self-Healing operates through the regeneration architecture rather than runtime detection. When Guidewire changes occur, generators regenerate framework assets from updated source code. The flattening architecture hides locator changes and widget type modifications throughout abstraction layers, allowing existing scenarios to continue functioning without modification." },
+      { q: "What are CenterTest Restart Points?", a: "CenterTest Restart Points are checkpoints within scenarios that enable resumption from specific stages rather than starting over from the beginning. When a scenario fails or requires a pause, execution can restart from the most recent checkpoint, dramatically reducing debugging and re-execution time." },
+      { q: "Why are Restart Points important?", a: "Complex end-to-end scenarios may take 15 minutes or longer to execute. Without restart points, debugging a failure at minute 12 requires running the full 15 minutes for each iteration. With restart points, debugging can begin from a checkpoint taking only 3 minutes, providing 5x faster debug cycles." },
+      { q: "What is CenterTest Self-Managed Execution?", a: "CenterTest Self-Managed Execution monitors CI/CD suite execution results and automatically manages scenario retries and restarts. The system can rerun failed scenarios and restart specific scenarios from their unique point of failure, removing the need for DevOps involvement in routine test management." }
     ]
   },
   {
-    category: "Features & Usage",
+    category: "Guidewire Cloud & CI/CD",
     questions: [
-      { q: "How do I import my existing data?", a: "Go to Settings > Data > Import. We support CSV, Excel, JSON, and direct imports from popular platforms like Salesforce, HubSpot, and Google Sheets. Our import wizard will guide you through mapping your fields." },
-      { q: "Can I export my data?", a: "Yes, you can export all your data at any time. Go to Settings > Data > Export and choose your preferred format (CSV, JSON, or Excel). Exports are processed in the background and you'll receive an email when ready." },
-      { q: "How do I share access with my team?", a: "From Settings > Team, click 'Invite Member' and enter their email address. You can assign roles (Admin, Editor, or Viewer) to control what each team member can access and modify." },
-      { q: "Is there an API available?", a: "Yes, we offer a comprehensive REST API for all paid plans. API documentation is available at docs.example.com/api. Pro and Enterprise plans include higher rate limits and webhook support." },
-      { q: "How do I set up integrations?", a: "Navigate to Settings > Integrations to browse our library of 100+ integrations. Click on any integration to see setup instructions. Most integrations can be configured in under 5 minutes with just a few clicks." },
-      { q: "Can I customize notifications?", a: "Yes, you have full control over notifications. Go to Settings > Notifications to choose which events trigger emails, push notifications, or in-app alerts. You can also set quiet hours during which notifications are muted." },
-      { q: "How do I create custom reports?", a: "From the Reports section, click 'New Report' to access our report builder. You can choose metrics, set date ranges, add filters, and create visualizations. Save reports to run them automatically on a schedule." },
-      { q: "Is there a mobile app?", a: "Yes, we have native apps for both iOS and Android. Download from the App Store or Google Play. The mobile app includes most features from the web version, optimized for on-the-go access." },
-      { q: "How do I use keyboard shortcuts?", a: "Press '?' anywhere in the app to see a complete list of keyboard shortcuts. Common shortcuts include 'N' for new item, 'S' for search, and 'G then H' to go home. You can customize shortcuts in Settings > Preferences." },
-      { q: "Can I undo changes?", a: "Yes, most actions can be undone using Ctrl+Z (Cmd+Z on Mac) or by clicking the Undo button that appears after making changes. We also maintain a complete revision history for all items, accessible via the History tab." }
+      { q: "What are Guidewire Cloud Quality Gates?", a: "Guidewire Cloud Quality Gates are configurable verification checkpoints within the Guidewire Cloud Platform CI/CD pipeline. Quality Gates integrate testing results to enhance transparency and can block artifacts from progressing through deployment stages when verification criteria are not met." },
+      { q: "What is Guidewire's Bring-Your-Own Testing framework?", a: "Bring-Your-Own Testing is Guidewire's framework enabling organizations to integrate existing testing investments into Guidewire Cloud Platform. The framework addresses challenges faced by carriers migrating to Cloud who have accumulated substantial testing resources during on-premise deployments." },
+      { q: "How does CenterTest integrate with Guidewire Cloud Quality Gates?", a: "CenterTest integrates with Quality Gates through webhook consumption to trigger scenario execution automatically, verification API integration to propagate results, pre-merge and pre-promotion gates where CenterTest scenarios serve as verification criteria, and designated functions testing configurable as Quality Gate requirements." },
+      { q: "What are designated functions?", a: "Designated functions are business-critical workflows that Guidewire mandates for automated testing in Cloud deployments. CenterTest supports Guidewire's designated functions requirement by tracking and evaluating specific flows during execution. The framework includes comprehensive designated function coverage across PolicyCenter, BillingCenter, and ClaimCenter." },
+      { q: "What CI/CD platforms does CenterTest support?", a: "CenterTest integrates with all major CI/CD platforms including Jenkins, Azure DevOps, GitHub Actions, GitLab CI/CD, and TeamCity. Because CenterTest is a standard Java repository using Gradle, any pipeline can check out and run the process." },
+      { q: "How does CenterTest accelerate Guidewire Cloud migrations?", a: "CenterTest Version Compatibility enables organizations to build comprehensive test coverage on their pre-Cloud implementation, then use those same scenarios to validate Cloud deployments on day one. This treats migration as Test-Driven Development where pre-Cloud scenarios define expected behavior and issues surface as failures to resolve." },
+      { q: "What is Day One testing capability?", a: "Day One testing means organizations can begin automated testing immediately when their Cloud technical upgrade deploys, using scenarios already developed and validated on the pre-Cloud system. There is no waiting to rebuild test automation; the existing investment transfers directly." },
+      { q: "How does CenterTest handle ski resort updates?", a: "When Guidewire releases ski resort updates, CenterTest absorbs changes through regeneration. The widget abstraction layers understand differences between Cloud releases, and CenterTest Self-Healing handles most modifications automatically. Scenarios continue functioning without requiring manual updates for routine version changes." }
     ]
   },
   {
-    category: "Account & Privacy",
+    category: "Implementation & Services",
     questions: [
-      { q: "How do I delete my account?", a: "To delete your account, go to Settings > Account > Delete Account. You'll need to confirm your password and the deletion. Note that this action is permanent and all your data will be erased within 30 days." },
-      { q: "Can I download all my personal data?", a: "Yes, in compliance with GDPR and CCPA, you can request a complete export of your personal data. Go to Settings > Privacy > Download My Data. We'll prepare your data and email you a download link within 48 hours." },
-      { q: "How do I manage cookie preferences?", a: "Click the cookie icon in the bottom left corner of any page, or go to Settings > Privacy > Cookie Preferences. You can enable or disable optional cookies for analytics and advertising while keeping essential cookies active." },
-      { q: "Who can see my profile information?", a: "By default, only your name and profile picture are visible to other users. You can control visibility of additional fields in Settings > Privacy > Profile Visibility. You can also make your entire profile private." },
-      { q: "How do I opt out of marketing emails?", a: "Click the unsubscribe link at the bottom of any marketing email, or go to Settings > Notifications > Email Preferences and uncheck 'Marketing and promotional emails'. You'll still receive essential account notifications." },
-      { q: "What data do you collect about me?", a: "We collect data you provide directly (name, email, content you create) and some data automatically (IP address, browser type, usage patterns). See our Privacy Policy for complete details on data collection and usage." },
-      { q: "How long do you retain my data?", a: "Active account data is retained as long as your account exists. After account deletion, we remove personal data within 30 days. Some anonymized analytics data may be retained longer. Backups are purged after 90 days." },
-      { q: "Can I restrict data processing?", a: "Yes, you can request restrictions on how we process your data. Go to Settings > Privacy > Data Processing or contact privacy@example.com. Note that some restrictions may limit functionality available to you." },
-      { q: "Is my data shared with third parties?", a: "We only share data with third parties as necessary to provide our services (e.g., payment processors, hosting providers). We never sell your data. See our Privacy Policy for a complete list of our sub-processors." },
-      { q: "How do I report a privacy concern?", a: "Email our Data Protection Officer at privacy@example.com with details of your concern. We take all privacy matters seriously and will respond within 5 business days. For EU residents, you also have the right to lodge a complaint with a supervisory authority." }
+      { q: "How quickly can CenterTest be implemented?", a: "Initial automation for a single line of business typically delivers within four weeks, including policy creation, binding, and claims processes. Subsequent lines of business often build in parallel using shared components. Full enterprise automation may require a few months depending on scale and complexity." },
+      { q: "Does Kimputing offer a proof of concept?", a: "Yes. Kimputing provides a no-risk proof of concept at no cost, typically completing within two weeks. A CenterTest architect and test writer create comprehensive, end-to-end, data-driven scenarios for the customer's Guidewire implementation designed to customer specifications." },
+      { q: "What software is required to run CenterTest?", a: "CenterTest requires standard development tooling: JDK for Java-based test execution, IntelliJ IDEA as the development environment, Git for version control and test asset management, and the AnkrPt CenterTest plugin for IntelliJ." },
+      { q: "Does CenterTest require access to Guidewire source code?", a: "Yes. The generators require access to Guidewire source code to create page objects, type lists, and product models. Generation runs within the customer's environment, ensuring complete control over source access and protecting intellectual property." },
+      { q: "What test management systems does CenterTest support?", a: "CenterTest provides pre-built integrations for ReportPortal, TestRail, and Inflectra's SpiraTest. Results synchronize in real-time during execution, with screenshots, recordings, and trace files uploading automatically. Other management systems can be supported with additional development time." },
+      { q: "What managed service options does Kimputing offer?", a: "Kimputing provides flexible engagement models: single project engagements for rate testing, performance testing, or Cloud migration support; automation practice building including team training and framework customization; migration and upgrade support; and ongoing support including help desk access, HealthCheck reviews, and framework maintenance." },
+      { q: "Can customers operate CenterTest independently after implementation?", a: "Yes. Customers can operate independently after onboarding. Scenarios are maintainable and readable using standard Java skills. The strongly-typed architecture ensures IDE support for navigation and refactoring. Documentation access through AI-assisted search provides self-service support." },
+      { q: "What seeding capabilities does CenterTest provide?", a: "CenterTest supports enhanced data seeding to automatically generate accounts, policies, claims, and other business entities using parameterized inputs. Teams can control the number of rows produced for each seeded entity, enabling bulk data creation for batch processing, edge case validation, or performance simulation." },
+      { q: "What is CenterTest Pause Processing?", a: "CenterTest Pause Processing enables hybrid automation and manual testing within a single execution. Automation executes to a defined point and pauses, allowing testers to manually interact with the application for exploratory testing or validation. When exploration completes, testers signal CenterTest to resume automation." },
+      { q: "What training does Kimputing provide?", a: "Upon licensure, Kimputing provides complete hands-on training covering CenterTest framework architecture, scenario development, reusables extension, DDT spreadsheet configuration, generator usage, Guidewire test automation best practices, CI/CD integration, and test manager integration. Deployment and training can be accomplished in less than one day for teams with basic Java proficiency." }
     ]
   },
   {
-    category: "Troubleshooting",
+    category: "AI & Support",
     questions: [
-      { q: "Why is the page loading slowly?", a: "Slow loading can be caused by a poor internet connection, browser cache issues, or browser extensions. Try refreshing the page, clearing your cache (Ctrl+Shift+Delete), or using incognito mode. If issues persist, contact support." },
-      { q: "I'm not receiving emails from you", a: "Check your spam/junk folder first. Add noreply@example.com to your contacts or safe sender list. If using a corporate email, ask your IT department to whitelist our domain. You can also verify your email address in Settings." },
-      { q: "The app crashed or froze", a: "Try refreshing the page (Ctrl+R or Cmd+R). If the issue persists, clear your browser cache and cookies for our site. Check status.example.com for any ongoing incidents. Report persistent crashes to support with your browser version." },
-      { q: "I can't log into my account", a: "First, make sure you're using the correct email address. Try the 'Forgot Password' link to reset your password. Check if Caps Lock is on. If your account is locked after too many attempts, wait 15 minutes or contact support." },
-      { q: "Features are missing from my account", a: "Some features are only available on certain plans. Check your current plan in Settings > Subscription. If you recently upgraded, try logging out and back in. Clear your browser cache if features still don't appear." },
-      { q: "My data didn't save properly", a: "Check your internet connection - data may not save if you're offline. Look for any error messages that appeared. Most items auto-save, but some require clicking a Save button. Check the revision history to recover previous versions." },
-      { q: "The search isn't returning expected results", a: "Search looks at titles and content but may not search all fields. Try using different keywords or check your spelling. Use quotes for exact phrases. Advanced search operators like AND, OR, and NOT are supported." },
-      { q: "I'm seeing an error message", a: "Note the exact error message and any error code. Try refreshing the page. If the error persists, check status.example.com for known issues. Contact support with the error details, steps to reproduce, and screenshots if possible." },
-      { q: "Sync isn't working across devices", a: "Ensure you're logged into the same account on all devices. Check your internet connection. Try manually refreshing or pulling down to sync. If using the mobile app, make sure background sync is enabled in your device settings." },
-      { q: "How do I clear my cache and cookies?", a: "In Chrome: Settings > Privacy > Clear browsing data. In Firefox: Options > Privacy > Clear Data. In Safari: Preferences > Privacy > Manage Website Data. Select 'Cached images and files' and 'Cookies' for our site, then clear." }
+      { q: "Does CenterTest use AI?", a: "The CenterTest framework itself does not use AI, machine learning, or agentic processes. CenterTest is a deterministic, locally-deployed Java-based test automation framework. Kimputing introduced stand-alone AI MCP solutions in 2025 to supplement CenterTest development, providing AI assistance independent from the core framework." },
+      { q: "What is the MCP architecture?", a: "MCP (Model Context Protocol) provides a client/server architecture enabling AI assistants to access context from multiple sources while maintaining security boundaries. The architecture consists of IDE integration, test code access through JetBrains MCP, documentation access through CenterTest MCP, and AI assistants like Claude Code as the orchestrating client." },
+      { q: "Why are AI tools separate from the framework?", a: "Separation provides several benefits: enterprise security where AI tools never access production environments, credentials, or protected source code; deterministic results where test execution produces consistent, reproducible results without AI variability; rapid deployment in secure environments without AI infrastructure requirements; and AI benefits through supplemental tooling on non-sensitive artifacts." },
+      { q: "What AI-assisted capabilities does the MCP architecture provide?", a: "The MCP architecture provides documentation intelligence for instant guidance on framework functionalities, widget discovery to search through generated widget code, stacktrace analysis with CenterTest-specific insights for error diagnosis, and test code assistance for scenario generation following established patterns and best practices." },
+      { q: "What data can AI tools access?", a: "AI tools access only CenterTest documentation, test code in the active branch workspace, test data files (Excel, JSON) for data-driven context, test configuration files, and test execution analytics data." },
+      { q: "What data is protected from AI access?", a: "AI tools should never access Guidewire source code or production application code, production credentials or database connection strings, production data or personally identifiable information, application runtime environments or API endpoints, or the main test code repository (only the checked-out branch)." },
+      { q: "What is CenterTest HealthCheck?", a: "CenterTest HealthCheck is an internal code and data analysis tooling suite that reviews common testing patterns and identifies optimization opportunities. Kimputing uses HealthCheck during engagements and ongoing support to ensure test suites remain efficient and maintainable as they scale." },
+      { q: "What ongoing support does Kimputing provide?", a: "Licensed customers receive help desk access for questions beyond documentation, framework maintenance during Guidewire upgrades, HealthCheck reviews for optimization opportunities, and extended services for complex implementations." },
+      { q: "What happens when CenterTest encounters issues during execution?", a: "CenterTest provides detailed exception codes with documented causes and solutions. The exception list maps errors to known issues and recommended fixes. AI-assisted stacktrace analysis provides CenterTest-specific insights, converting cryptic errors into actionable guidance. Combined with CenterTest Self-Managed Execution, many transient issues resolve automatically through retries." }
     ]
   }
 ];
@@ -109,8 +146,19 @@ class FaqWidget extends HTMLElement {
   }
 
   connectedCallback() {
+    this.loadFont();
     this.render();
     this.attachEventListeners();
+  }
+
+  loadFont() {
+    // Load Poppins font in the main document if not already loaded
+    if (!document.querySelector('link[href*="Poppins"]')) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap';
+      document.head.appendChild(link);
+    }
   }
 
   disconnectedCallback() {
@@ -248,6 +296,7 @@ class FaqWidget extends HTMLElement {
         flex: 1;
         overflow-y: auto;
         padding: 8px 0;
+        text-align: left;
       }
 
       /* Categories */
@@ -273,7 +322,7 @@ class FaqWidget extends HTMLElement {
       }
 
       .category-name {
-        font-size: 15px;
+        font-size: 14px;
         font-weight: 500;
         color: var(--text-color);
       }
@@ -350,7 +399,7 @@ class FaqWidget extends HTMLElement {
       }
 
       .answer-preview {
-        font-size: 13px;
+        font-size: 12px;
         color: #666;
         margin-top: 4px;
         line-height: 1.4;
@@ -359,7 +408,7 @@ class FaqWidget extends HTMLElement {
 
       .answer-full {
         display: none;
-        font-size: 13px;
+        font-size: 12px;
         color: #444;
         margin-top: 8px;
         padding-top: 8px;
@@ -483,6 +532,39 @@ class FaqWidget extends HTMLElement {
         outline-offset: 2px;
       }
 
+      /* Book a Demo Button */
+      .demo-button-container {
+        padding: 16px 20px;
+        border-top: 1px solid #f0f0f0;
+        flex-shrink: 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      .demo-button {
+        display: inline-block;
+        width: 115px;
+        height: 45px;
+        background: #000000;
+        color: #ff8122;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 14px;
+        text-decoration: none;
+        border: 2px solid #ff8122;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        line-height: 41px;
+        text-align: center;
+      }
+
+      .demo-button:hover {
+        background: #FFFFFF;
+        color: #000000;
+        border-color: #000000;
+      }
+
       /* Reduced motion */
       @media (prefers-reduced-motion: reduce) {
         * {
@@ -527,6 +609,9 @@ class FaqWidget extends HTMLElement {
           </div>
           <div class="content-area" id="contentArea">
             ${this.renderCategories()}
+          </div>
+          <div class="demo-button-container">
+            <a href="https://kimputing.com/book-a-demo/" class="demo-button" target="_blank" rel="noopener">Get Started</a>
           </div>
         </div>
       </div>
